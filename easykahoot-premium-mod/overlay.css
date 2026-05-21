@@ -1,0 +1,304 @@
+/* ── Reset de aislamiento ─────────────────────────────────────────────────── */
+
+#dom-observer-overlay {
+  all: initial;
+  display: flex !important;
+  flex-direction: column !important;
+  pointer-events: auto !important;
+
+  position: fixed !important;
+  top: 16px !important;
+  right: 16px !important;
+  z-index: 2147483647 !important;
+
+  width: 300px !important;
+  max-height: 85vh !important;
+  min-height: 44px !important;
+  overflow: hidden !important;
+
+  background: #1e1e2e !important;
+  color: #cdd6f4 !important;
+  border: 1px solid #45475a !important;
+  border-radius: 10px !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,.55) !important;
+  font-family: "Segoe UI", system-ui, sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  box-sizing: border-box !important;
+  transition: max-height .2s ease !important;
+}
+
+/* ── Minimizado ────────────────────────────────────────────────────────────── */
+
+#dom-observer-overlay.minimized {
+  max-height: 44px !important;
+}
+#dom-observer-overlay.minimized .overlay-body,
+#dom-observer-overlay.minimized .overlay-footer {
+  display: none !important;
+}
+#dom-observer-overlay.minimized .overlay-header {
+  border-radius: 10px !important;
+  border-bottom: none !important;
+}
+
+/* ── Header ────────────────────────────────────────────────────────────────── */
+
+#dom-observer-overlay .overlay-header {
+  all: unset !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: 44px !important;
+  padding: 0 10px !important;
+  flex-shrink: 0 !important;
+  background: #313244 !important;
+  border-radius: 10px 10px 0 0 !important;
+  border-bottom: 1px solid #45475a !important;
+  user-select: none !important;
+  box-sizing: border-box !important;
+}
+
+#dom-observer-overlay .overlay-title {
+  all: unset !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  color: #89b4fa !important;
+}
+
+#dom-observer-overlay .overlay-controls {
+  all: unset !important;
+  display: flex !important;
+  gap: 5px !important;
+}
+
+#dom-observer-overlay .overlay-minimize,
+#dom-observer-overlay .overlay-close {
+  all: unset !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 50% !important;
+  font-size: 15px !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  transition: background .15s !important;
+  user-select: none !important;
+  line-height: 1 !important;
+}
+
+#dom-observer-overlay .overlay-minimize {
+  background: rgba(137,180,250,.12) !important;
+  color: #89b4fa !important;
+}
+#dom-observer-overlay .overlay-minimize:hover {
+  background: rgba(137,180,250,.28) !important;
+}
+#dom-observer-overlay .overlay-close {
+  background: rgba(243,139,168,.12) !important;
+  color: #f38ba8 !important;
+}
+#dom-observer-overlay .overlay-close:hover {
+  background: rgba(243,139,168,.3) !important;
+}
+
+/* ── Body ──────────────────────────────────────────────────────────────────── */
+
+#dom-observer-overlay .overlay-body {
+  all: unset !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  padding: 10px 12px !important;
+  gap: 8px !important;
+  pointer-events: auto !important;
+  box-sizing: border-box !important;
+}
+
+#dom-observer-overlay .overlay-body::-webkit-scrollbar { width: 4px !important; }
+#dom-observer-overlay .overlay-body::-webkit-scrollbar-track { background: transparent !important; }
+#dom-observer-overlay .overlay-body::-webkit-scrollbar-thumb {
+  background: #45475a !important;
+  border-radius: 2px !important;
+}
+
+/* ── Respuesta correcta (bloque principal) ─────────────────────────────────── */
+
+#dom-observer-overlay .answer-box {
+  all: unset !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  background: linear-gradient(135deg, #1a472a, #2d6a3f) !important;
+  border: 2px solid #a6e3a1 !important;
+  border-radius: 8px !important;
+  padding: 10px 12px !important;
+  margin-bottom: 8px !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+#dom-observer-overlay .answer-label {
+  all: unset !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  letter-spacing: .12em !important;
+  color: #a6e3a1 !important;
+  text-transform: uppercase !important;
+  margin-bottom: 4px !important;
+  display: block !important;
+}
+
+#dom-observer-overlay .answer-value {
+  all: unset !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: #a6e3a1 !important;
+  text-align: center !important;
+  line-height: 1.3 !important;
+  word-break: break-word !important;
+  display: block !important;
+}
+
+/* ── Pregunta y opciones ───────────────────────────────────────────────────── */
+
+#dom-observer-overlay .question-preview {
+  all: unset !important;
+  display: block !important;
+  font-size: 11px !important;
+  color: #7f849c !important;
+  font-style: italic !important;
+  line-height: 1.4 !important;
+  margin-bottom: 6px !important;
+  word-break: break-word !important;
+}
+
+#dom-observer-overlay .choices-list {
+  all: unset !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+}
+
+#dom-observer-overlay .choice-row {
+  all: unset !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  font-size: 12px !important;
+  padding: 3px 6px !important;
+  border-radius: 5px !important;
+  box-sizing: border-box !important;
+  word-break: break-word !important;
+}
+
+#dom-observer-overlay .choice-correct {
+  background: rgba(166,227,161,.12) !important;
+  border: 1px solid rgba(166,227,161,.3) !important;
+  color: #a6e3a1 !important;
+  font-weight: 600 !important;
+}
+
+#dom-observer-overlay .choice-wrong {
+  color: #585b70 !important;
+}
+
+#dom-observer-overlay .choice-letter {
+  all: unset !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: #6c7086 !important;
+  min-width: 14px !important;
+}
+#dom-observer-overlay .choice-correct .choice-letter {
+  color: #a6e3a1 !important;
+}
+
+#dom-observer-overlay .choice-check {
+  all: unset !important;
+  color: #a6e3a1 !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  min-width: 14px !important;
+}
+#dom-observer-overlay .choice-dot {
+  all: unset !important;
+  color: #45475a !important;
+  min-width: 14px !important;
+}
+#dom-observer-overlay .choice-text {
+  all: unset !important;
+  flex: 1 !important;
+  font-size: 12px !important;
+}
+
+/* ── Estado de espera ──────────────────────────────────────────────────────── */
+
+#dom-observer-overlay .waiting-msg {
+  all: unset !important;
+  display: block !important;
+  font-size: 12px !important;
+  color: #585b70 !important;
+  font-style: italic !important;
+  text-align: center !important;
+  padding: 8px 0 !important;
+}
+
+/* ── Feedback de auto-respuesta ────────────────────────────────────────────── */
+
+#dom-observer-overlay .overlay-feedback {
+  all: unset !important;
+  display: block !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #a6e3a1 !important;
+  text-align: center !important;
+  opacity: 0 !important;
+  transition: opacity .3s !important;
+  min-height: 16px !important;
+}
+#dom-observer-overlay .overlay-feedback.visible {
+  opacity: 1 !important;
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────────── */
+
+#dom-observer-overlay .overlay-footer {
+  all: unset !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  flex-wrap: wrap !important;
+  flex-shrink: 0 !important;
+  padding: 6px 12px !important;
+  border-top: 1px solid #313244 !important;
+  background: #181825 !important;
+  border-radius: 0 0 10px 10px !important;
+  box-sizing: border-box !important;
+}
+
+#dom-observer-overlay .overlay-footer kbd {
+  all: unset !important;
+  font-family: "Segoe UI", monospace !important;
+  font-size: 10px !important;
+  color: #cdd6f4 !important;
+  background: #313244 !important;
+  border: 1px solid #45475a !important;
+  border-radius: 3px !important;
+  padding: 1px 5px !important;
+  cursor: default !important;
+}
+
+#dom-observer-overlay .overlay-footer span {
+  all: unset !important;
+  font-size: 10px !important;
+  color: #585b70 !important;
+}
+
+#dom-observer-overlay .overlay-footer .sep {
+  color: #313244 !important;
+}

@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Kahoot Answer Helper",
+  "version": "2.0",
+  "description": "Auto-responde en Kahoot usando datos del juego",
+  "host_permissions": [
+    "https://kahoot.it/*",
+    "https://play.kahoot.it/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://kahoot.it/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
